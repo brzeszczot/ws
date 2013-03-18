@@ -1,0 +1,15 @@
+# depslib dependency file v1.0
+1363648490 source:/var/www/cgi-bin/ws/main.cpp
+	<boost/cgi/cgi.hpp>
+	<iostream>
+	"Vars.hpp"
+
+1363645833 /var/www/cgi-bin/ws/Vars.hpp
+	<iostream>
+	<map>
+	<string>
+	"qdecoder.h"
+
+1363646307 source:/var/www/cgi-bin/ws/Vars.cpp
+	"Vars.hpp"
+
