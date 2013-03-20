@@ -16,9 +16,10 @@ class Config
         typedef std::map<std::string, std::string> category;
         std::vector<std::string> categories;
     public:
-        Config(const std::string &path);
+        Config();
+        Config(const std::string &path, std::string main_category);
         ~Config();
-        size_t Load();
+        size_t Load(const std::string &path, std::string main_category);
         std::map<std::string, category> items;
 };
 

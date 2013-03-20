@@ -1,7 +1,8 @@
 # depslib dependency file v1.0
-1363741540 source:/var/www/cgi-bin/ws/main.cpp
+1363764600 source:/var/www/cgi-bin/ws/main.cpp
 	<iostream>
 	"Engine.hpp"
+	"boost/log/trivial.hpp"
 
 1363645833 /var/www/cgi-bin/ws/Vars.hpp
 	<iostream>
@@ -12,14 +13,16 @@
 1363649111 source:/var/www/cgi-bin/ws/Vars.cpp
 	"Vars.hpp"
 
-1363741407 source:/var/www/cgi-bin/ws/Engine.cpp
+1363761592 source:/var/www/cgi-bin/ws/Engine.cpp
 	"Engine.hpp"
 
-1363733666 /var/www/cgi-bin/ws/Engine.hpp
+1363761005 /var/www/cgi-bin/ws/Engine.hpp
 	"boost/cgi/cgi.hpp"
 	"Config.hpp"
+	"Functions.hpp"
+	"Bmysql.hpp"
 
-1363741286 /var/www/cgi-bin/ws/Config.hpp
+1363761388 /var/www/cgi-bin/ws/Config.hpp
 	<vector>
 	<map>
 	"boost/foreach.hpp"
@@ -27,14 +30,26 @@
 	"boost/property_tree/ini_parser.hpp"
 	"Functions.hpp"
 
-1363741297 source:/var/www/cgi-bin/ws/Config.cpp
+1363761529 source:/var/www/cgi-bin/ws/Config.cpp
 	"Config.hpp"
 
-1363736008 /var/www/cgi-bin/ws/Functions.hpp
+1363751897 /var/www/cgi-bin/ws/Functions.hpp
 	<string>
 	<sstream>
 	<vector>
+	<map>
 
-1363736242 source:/var/www/cgi-bin/ws/Functions.cpp
+1363751931 source:/var/www/cgi-bin/ws/Functions.cpp
 	"Functions.hpp"
+
+1363761277 source:/var/www/cgi-bin/ws/Bmysql.cpp
+	"Bmysql.hpp"
+
+1363761287 /var/www/cgi-bin/ws/Bmysql.hpp
+	<iostream>
+	<vector>
+	<fstream>
+	<sstream>
+	<map>
+	<mysql/mysql.h>
 

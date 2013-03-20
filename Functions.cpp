@@ -4,7 +4,7 @@ using namespace std;
 
 namespace Functions
 {
-    vector<string> &split(const string &s, char delim, vector<string> &elems)
+    const vector<string> &split(const string &s, char delim, vector<string> &elems)
     {
         stringstream ss(s);
         string item;
@@ -13,7 +13,7 @@ namespace Functions
         return elems;
     }
 
-    vector<string> split(const string &s, char delim)
+    const vector<string> split(const string &s, char delim)
     {
         vector<string> elems;
         return split(s, delim, elems);
