@@ -1,8 +1,7 @@
 # depslib dependency file v1.0
-1363648490 source:/var/www/cgi-bin/ws/main.cpp
-	<boost/cgi/cgi.hpp>
+1363741540 source:/var/www/cgi-bin/ws/main.cpp
 	<iostream>
-	"Vars.hpp"
+	"Engine.hpp"
 
 1363645833 /var/www/cgi-bin/ws/Vars.hpp
 	<iostream>
@@ -10,6 +9,32 @@
 	<string>
 	"qdecoder.h"
 
-1363646307 source:/var/www/cgi-bin/ws/Vars.cpp
+1363649111 source:/var/www/cgi-bin/ws/Vars.cpp
 	"Vars.hpp"
+
+1363741407 source:/var/www/cgi-bin/ws/Engine.cpp
+	"Engine.hpp"
+
+1363733666 /var/www/cgi-bin/ws/Engine.hpp
+	"boost/cgi/cgi.hpp"
+	"Config.hpp"
+
+1363741286 /var/www/cgi-bin/ws/Config.hpp
+	<vector>
+	<map>
+	"boost/foreach.hpp"
+	"boost/property_tree/ptree.hpp"
+	"boost/property_tree/ini_parser.hpp"
+	"Functions.hpp"
+
+1363741297 source:/var/www/cgi-bin/ws/Config.cpp
+	"Config.hpp"
+
+1363736008 /var/www/cgi-bin/ws/Functions.hpp
+	<string>
+	<sstream>
+	<vector>
+
+1363736242 source:/var/www/cgi-bin/ws/Functions.cpp
+	"Functions.hpp"
 
