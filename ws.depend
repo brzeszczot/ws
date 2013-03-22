@@ -1,8 +1,8 @@
 # depslib dependency file v1.0
-1363764600 source:/var/www/cgi-bin/ws/main.cpp
+1363956010 source:/var/www/cgi-bin/ws/main.cpp
 	<iostream>
 	"Engine.hpp"
-	"boost/log/trivial.hpp"
+	"Logger.hpp"
 
 1363645833 /var/www/cgi-bin/ws/Vars.hpp
 	<iostream>
@@ -13,14 +13,15 @@
 1363649111 source:/var/www/cgi-bin/ws/Vars.cpp
 	"Vars.hpp"
 
-1363761592 source:/var/www/cgi-bin/ws/Engine.cpp
+1363955362 source:/var/www/cgi-bin/ws/Engine.cpp
 	"Engine.hpp"
 
-1363761005 /var/www/cgi-bin/ws/Engine.hpp
+1363956472 /var/www/cgi-bin/ws/Engine.hpp
 	"boost/cgi/cgi.hpp"
 	"Config.hpp"
 	"Functions.hpp"
 	"Bmysql.hpp"
+	"Logger.hpp"
 
 1363761388 /var/www/cgi-bin/ws/Config.hpp
 	<vector>
@@ -45,11 +46,26 @@
 1363761277 source:/var/www/cgi-bin/ws/Bmysql.cpp
 	"Bmysql.hpp"
 
-1363761287 /var/www/cgi-bin/ws/Bmysql.hpp
+1363949948 /var/www/cgi-bin/ws/Bmysql.hpp
 	<iostream>
 	<vector>
 	<fstream>
 	<sstream>
 	<map>
 	<mysql/mysql.h>
+
+1363955957 source:/var/www/cgi-bin/ws/Logger.cpp
+	<iostream>
+	<new>
+	<cstdlib>
+	"Logger.hpp"
+
+1363955851 /var/www/cgi-bin/ws/Logger.hpp
+	<fstream>
+	<ostream>
+	<string>
+	<vector>
+	<sstream>
+	<sys/time.h>
+	<pthread.h>
 

@@ -10,9 +10,11 @@ void map_iterate(Map &m, map<string, string> &mm)
         mm[it->first.c_str()] = it->second.c_str();
 }
 
-Engine::Engine(string project_name, string project_path)
+Engine::Engine(string p_name, string conf_path, string project_path)
 {
-    full_config_path = CONF_PATH + project_name + "/" + CONF_NAME;
+    project_name = p_name;
+
+    full_config_path = conf_path + project_name + "/" + CONF_NAME;
     full_env_path = project_path;
     conf.Load(full_config_path, CONF_MAIN);
 

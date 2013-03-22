@@ -2,7 +2,6 @@
 #define ENGINE_HPP_INCLUDED
 
 #define HTML            "text/html"
-#define CONF_PATH       "/usr/local/angel.com/psphpconf/"
 #define CONF_NAME       "conf.ini"
 #define CONF_MAIN       "main"
 
@@ -10,11 +9,12 @@
 #include "Config.hpp"
 #include "Functions.hpp"
 #include "Bmysql.hpp"
+#include "Logger.hpp"
 
 class Engine
 {
     public:
-        Engine(std::string project_name, std::string project_path);
+        Engine(std::string p_name, std::string conf_path, std::string project_path);
         ~Engine();
         int Draw(std::string content_type = HTML);
         boost::cgi::request req;
@@ -26,6 +26,7 @@ class Engine
         Bmysql db;
         std::string full_config_path;
         std::string full_env_path;
+        std::string project_name;
 };
 
 #endif // ENGINE_HPP_INCLUDED
