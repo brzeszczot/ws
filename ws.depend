@@ -1,8 +1,9 @@
 # depslib dependency file v1.0
-1363956010 source:/var/www/cgi-bin/ws/main.cpp
+1363970649 source:/var/www/cgi-bin/ws/main.cpp
 	<iostream>
 	"Engine.hpp"
 	"Logger.hpp"
+	"Xml.hpp"
 
 1363645833 /var/www/cgi-bin/ws/Vars.hpp
 	<iostream>
@@ -68,4 +69,14 @@
 	<sstream>
 	<sys/time.h>
 	<pthread.h>
+
+1363970355 /var/www/cgi-bin/ws/Xml.hpp
+	<string>
+	<sstream>
+	<map>
+	<boost/property_tree/ptree.hpp>
+	<boost/property_tree/xml_parser.hpp>
+
+1363970553 source:/var/www/cgi-bin/ws/Xml.cpp
+	"Xml.hpp"
 

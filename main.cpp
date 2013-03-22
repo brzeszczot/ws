@@ -8,11 +8,13 @@
 #include <iostream>
 #include "Engine.hpp"
 #include "Logger.hpp"
+#include "Xml.hpp"
 
 using namespace std;
 
 int main(int argc, char **argv)
 {
+    // set up logger
     const string full_log_path((string)LOG_PATH + (string)PROJECT_NAME + "/" + (string)PROJECT_NAME);
     DEBUG_CONF(PROJECT_NAME, full_log_path, Logger::file_on, DBG_DEBUG, DBG_ERROR);
     DEBUG(DBG_DEBUG, "=== START ===");
@@ -20,6 +22,14 @@ int main(int argc, char **argv)
     try
     {
         Engine *engine = new Engine(PROJECT_NAME, CONF_PATH, (string)argv[0]);
+
+
+
+        map<string, string> d;
+        map<string, string> opt;
+        Xml xml;
+        cout << xml.Send(d, opt) << "@";
+
 
 
         engine->resp << "<html><body>Test"
@@ -50,7 +60,10 @@ int main(int argc, char **argv)
     catch(string s)
     {
         DEBUG(DBG_DEBUG, s);
-        cout << s << "@";
+    }
+    catch(exception &e)
+    {
+        DEBUG(DBG_DEBUG, e.what());
     }
 
     return 0;
