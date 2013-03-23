@@ -18,7 +18,7 @@ class Config
     public:
         Config();
         Config(const std::string &path, std::string main_category);
-        ~Config();
+        virtual ~Config();
         size_t Load(const std::string &path, std::string main_category);
         std::map<std::string, category> items;
 };

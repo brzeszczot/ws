@@ -1,9 +1,10 @@
 # depslib dependency file v1.0
-1363970649 source:/var/www/cgi-bin/ws/main.cpp
+1364015247 source:/var/www/cgi-bin/ws/main.cpp
 	<iostream>
 	"Engine.hpp"
 	"Logger.hpp"
 	"Xml.hpp"
+	"Logic.hpp"
 
 1363645833 /var/www/cgi-bin/ws/Vars.hpp
 	<iostream>
@@ -14,17 +15,18 @@
 1363649111 source:/var/www/cgi-bin/ws/Vars.cpp
 	"Vars.hpp"
 
-1363955362 source:/var/www/cgi-bin/ws/Engine.cpp
+1364015037 source:/var/www/cgi-bin/ws/Engine.cpp
 	"Engine.hpp"
 
-1363956472 /var/www/cgi-bin/ws/Engine.hpp
+1364014751 /var/www/cgi-bin/ws/Engine.hpp
 	"boost/cgi/cgi.hpp"
 	"Config.hpp"
 	"Functions.hpp"
 	"Bmysql.hpp"
 	"Logger.hpp"
+	"Xml.hpp"
 
-1363761388 /var/www/cgi-bin/ws/Config.hpp
+1364009319 /var/www/cgi-bin/ws/Config.hpp
 	<vector>
 	<map>
 	"boost/foreach.hpp"
@@ -47,7 +49,7 @@
 1363761277 source:/var/www/cgi-bin/ws/Bmysql.cpp
 	"Bmysql.hpp"
 
-1363949948 /var/www/cgi-bin/ws/Bmysql.hpp
+1364009300 /var/www/cgi-bin/ws/Bmysql.hpp
 	<iostream>
 	<vector>
 	<fstream>
@@ -70,13 +72,22 @@
 	<sys/time.h>
 	<pthread.h>
 
-1363970355 /var/www/cgi-bin/ws/Xml.hpp
+1364012934 /var/www/cgi-bin/ws/Xml.hpp
 	<string>
 	<sstream>
 	<map>
 	<boost/property_tree/ptree.hpp>
 	<boost/property_tree/xml_parser.hpp>
 
-1363970553 source:/var/www/cgi-bin/ws/Xml.cpp
+1364014933 source:/var/www/cgi-bin/ws/Xml.cpp
+	"Xml.hpp"
+
+1364015350 source:/var/www/cgi-bin/ws/Logic.cpp
+	"Logic.hpp"
+
+1364014514 /var/www/cgi-bin/ws/Logic.hpp
+	<map>
+	<string>
+	"Engine.hpp"
 	"Xml.hpp"
 

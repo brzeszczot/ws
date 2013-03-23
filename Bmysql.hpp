@@ -19,7 +19,7 @@ class Bmysql
     public:
         Bmysql();
         Bmysql(std::string host, std::string user, std::string pass, std::string db);
-        ~Bmysql();
+        virtual ~Bmysql();
         void connect(std::string host, std::string user, std::string pass, std::string db);
         int query(std::string sql = "SHOW TABLES");
         int select(std::string table);

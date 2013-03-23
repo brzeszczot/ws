@@ -9,8 +9,16 @@
 #include "Engine.hpp"
 #include "Logger.hpp"
 #include "Xml.hpp"
+#include "Logic.hpp"
 
 using namespace std;
+
+void catchReport(string s, Xml *xml)
+{
+    DEBUG(DBG_ERROR, s);
+    xml->data["message"] = s;
+    cout << "Content-type: text/xml\n\n" << xml->Send();
+}
 
 int main(int argc, char **argv)
 {
@@ -19,51 +27,22 @@ int main(int argc, char **argv)
     DEBUG_CONF(PROJECT_NAME, full_log_path, Logger::file_on, DBG_DEBUG, DBG_ERROR);
     DEBUG(DBG_DEBUG, "=== START ===");
 
+    Xml *xml = new Xml(Xml::MESSAGE_PAGE);
+
     try
     {
-        Engine *engine = new Engine(PROJECT_NAME, CONF_PATH, (string)argv[0]);
+        Engine *engine = new Engine(PROJECT_NAME, CONF_PATH, (string)argv[0], xml);
+        Logic logic(engine);
 
-
-
-        map<string, string> d;
-        map<string, string> opt;
-        Xml xml;
-        cout << xml.Send(d, opt) << "@";
-
-
-
-        engine->resp << "<html><body>Test"
-            "<form method=post enctype=\"multipart/form-data\">"
-            "<input type=text name=name1 value='" << engine->post["name1"] << "' />"
-            "<input type=text name=name2 value='" << engine->post["name2"] << "' />"
-            "<input type=text name=name3 value='" << engine->post["name3"] << "' />"
-            "<input type=submit value=submit /></form><br />";
-/*
-        engine->db.query("SELECT * FROM test");
-        for(int ii=0;ii<engine->db.results.size();ii++)
-            cout << engine->db.results[ii]["name"];
-*/
-        for(map<string, string>::iterator it(engine->post.begin()); it!=engine->post.end(); ++it)
-            engine->resp << it->first << ": " << it->second << "<br />";
-        engine->resp << "<br />";
-        for(map<string, string>::iterator it(engine->get.begin()); it!=engine->get.end(); ++it)
-            engine->resp << it->first << ": " << it->second << "<br />";
-        engine->resp << "<br />";
-        for(map<string, string>::iterator it(engine->env.begin()); it!=engine->env.end(); ++it)
-            engine->resp << it->first << ": " << it->second << "<br />";
-        engine->resp << "<br />";
-        engine->resp << engine->full_env_path << "<br />";
-        engine->resp << engine->full_config_path << "<br />";
-
-        return engine->Draw();
+        return engine->Draw(CTYPE_XML);
     }
     catch(string s)
     {
-        DEBUG(DBG_DEBUG, s);
+        catchReport(s, xml);
     }
     catch(exception &e)
     {
-        DEBUG(DBG_DEBUG, e.what());
+        catchReport(e.what(), xml);
     }
 
     return 0;
