@@ -9,6 +9,11 @@ Logic::Logic(Engine *eng)
     engine->xml->data["message"] = "Nothing to do here...";
     engine->resp << engine->xml->Send();
 
+    engine->db.in["string_column"] = "Ala ma kota a kot ma AIDS";
+    engine->db.in["int_column"] = "666666";
+    engine->db.in["date_column"] = "2013-01-01 20:30:30";
+    engine->db.in["float_column"] = "666.666";
+    engine->db.insert("table_insertion");
 
 /*
         // testowanie POST

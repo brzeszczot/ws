@@ -31,6 +31,29 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Linker>
+			<Add option="-lboost_system" />
+			<Add option="-pthread" />
+			<Add option="-lboost_thread" />
+			<Add option="-lmysqlclient" />
+			<Add library="/usr/local/lib/libboost_filesystem.a" />
+			<Add library="/usr/lib/libmysqlclient.a" />
+		</Linker>
+		<Unit filename="Bmysql.cpp" />
+		<Unit filename="Bmysql.hpp" />
+		<Unit filename="Config.cpp" />
+		<Unit filename="Config.hpp" />
+		<Unit filename="Engine.cpp" />
+		<Unit filename="Engine.hpp" />
+		<Unit filename="Functions.cpp" />
+		<Unit filename="Functions.hpp" />
+		<Unit filename="Logger.cpp" />
+		<Unit filename="Logger.hpp" />
+		<Unit filename="Logic.cpp" />
+		<Unit filename="Logic.hpp" />
+		<Unit filename="Xml.cpp" />
+		<Unit filename="Xml.hpp" />
+		<Unit filename="main.cpp" />
 		<Extensions>
 			<envvars />
 			<code_completion />
