@@ -1,16 +1,31 @@
-SRCS     := main.cpp Xml.cpp Logic.cpp Logger.cpp Functions.cpp Engine.cpp Config.cpp Bmysql.cpp
-OBJS     := $(SRCS:.cpp=.o)
-CXXFLAGS := -Wall
-INCPATHS := -I/usr/include
-LIBPATHS := -L/usr/lib
-LIBS     := -lboost_system -pthread -lboost_thread -lmysqlclient /usr/local/lib/libboost_filesystem.a /usr/lib/libmysqlclient.a
-EXE      := ws
+# makefile.
 
-$(EXE): $(OBJS)
-	$(CXX) $(OBJS) $(LIBPATHS) $(LIBS) -o $@
+CC := g++ # This is the main compiler
+SRCDIR := src
+BUILDDIR := build
+TARGET := bin/ws
+ 
+SRCEXT := cpp
+SOURCES := $(wildcard $(SRCDIR)/*.$(SRCEXT))
+OBJECTS := $(patsubst $(SRCDIR)/%,$(BUILDDIR)/%,$(SOURCES:.$(SRCEXT)=.o))
+CFLAGS := -g -Wall
+LIB := -lboost_system -pthread -lboost_thread-mt -lmysqlclient /usr/lib64/libboost_filesystem.a `mysql_config --cflags --libs`
+INC := -I include
 
-.cpp.o:
-	$(CXX) $(CXXFLAGS) $(INCPATHS) -c $< -o $@
+$(TARGET): $(OBJECTS)
+	@echo " Linking..."
+	@echo " $(CC) $^ -o $(TARGET) $(LIB)"; $(CC) $^ -o $(TARGET) $(LIB)
+
+$(BUILDDIR)/%.o: $(SRCDIR)/%.$(SRCEXT)
+	@mkdir -p $(dir $@)
+	@echo " $(CC) $(CFLAGS) $(INC) -c -o $@ $<"; $(CC) $(CFLAGS) $(INC) -c -o $@ $<
 
 clean:
-	rm -f *.o *.so
+	@echo " Cleaning..."; 
+	@echo " $(RM) -r $(BUILDDIR) $(TARGET)"; $(RM) -r $(BUILDDIR) $(TARGET)
+
+# Tests
+# tester:
+# 	$(CC) $(CFLAGS) test/tester.cpp $(INC) $(LIB) -o bin/tester
+
+.PHONY: clean

@@ -1,0 +1,16 @@
+SRCS     := main.cpp Xml.cpp Logic.cpp Logger.cpp Functions.cpp Engine.cpp Config.cpp Bmysql.cpp
+OBJS     := $(SRCS:.cpp=.o)
+CXXFLAGS := -Wall
+INCPATHS := -I/usr/include
+LIBPATHS := -L/usr/lib64
+LIBS     := -lboost_system -pthread -lboost_thread-mt -lmysqlclient /usr/lib64/libboost_filesystem.a `mysql_config --cflags --libs`
+EXE      := ws
+
+$(EXE): $(OBJS)
+	$(CXX) $(OBJS) $(LIBPATHS) $(LIBS) -o $@
+
+.cpp.o:
+	$(CXX) $(CXXFLAGS) $(INCPATHS) -c $< -o $@
+
+clean:
+	rm -f *.o *.so
